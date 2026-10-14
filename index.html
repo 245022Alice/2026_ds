@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日の運勢おみくじ</title>
 
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: #fff8f0;
+            color: #663333;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #a83232;
+        }
+
+        button {
+            background-color: #c93636;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #982626;
+        }
+
+        #result {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        #message {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>今日の運勢おみくじ</h1>
+    <p>ボタンを押して今日の運勢を占おう！</p>
+
+    <button onclick="drawFortune()">おみくじを引く</button>
+
+    <div id="result">？？？</div>
+    <p id="message"></p>
+
+    <script>
+        function drawFortune() {
+            const fortunes = [
+                { name: "大吉", message: "最高の一日になりそう！" },
+                { name: "中吉", message: "焦らず進めばうまくいく！" },
+                { name: "小吉", message: "小さな幸せを見つけよう！" },
+                { name: "吉", message: "いつも通りがいちばん！" },
+                { name: "凶", message: "無理せずゆっくり過ごそう。" }
+            ];
+
+            const number = Math.floor(Math.random() * fortunes.length);
+            const fortune = fortunes[number];
+
+            document.getElementById("result").textContent = fortune.name;
+            document.getElementById("message").textContent = fortune.message;
+        }
+    </script>
+</body>
+</html>
